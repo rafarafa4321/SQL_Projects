@@ -1,6 +1,7 @@
 
 -- Data Source: https://covid19.who.int/info
 
+
 -- A query that sorts countries by total Covid-19 deaths
 -- The US has the highest death count in the world 
 
@@ -20,6 +21,9 @@ order by
 	sum_of_deaths desc;
 
 
+
+
+
 -- The first documented infection cases
 -- Asian countries were primarily the first ones infected: China, Thailand, and S Korea
 -- The US' first infection case was reported on Jan 20 2020
@@ -34,7 +38,11 @@ order by
 date_reported asc;
 
 
--- A query that sorts countries by death rates
+
+
+
+
+-- A query that sorts countries by death rates; from highest to lowest
 
 with tmp as(
 select 
@@ -56,7 +64,12 @@ order by
 	infection_death_rates desc;
 
 
---The code below creates a procedure that retrieves a country’s latest infection info by a user inputting a country's name 
+
+
+
+
+
+--The code below creates a procedure that retrieves a countryâ€™s latest infection info by a user inputting a country's name 
 
 drop procedure if exists latest_info;
 
@@ -78,19 +91,30 @@ country
 GO
 ;
 
---Executes the procedure created above
+--The code below is an example of how to execute the stored procedure created above
 
 exec latest_info @country_name = 'Puerto Rico'
 
 
---After importing vaccination data table I ensured that countries' names were consistent with the infection data table, so I added a new column -‘country’- and copied the 'location' column’s values into it
+
+
+
+
+--After importing vaccination data table I ensured that countries' names were consistent with the infection data table, 
+--so I added a new column -â€˜countryâ€™- and copied the 'location' columnâ€™s values into it
 
 alter table covid_vax$
 add Country varchar(255)
 ;
 
 update covid_vax$
-set country = coalesce(country, location)
+set country = coalesce(country, location);
+
+
+
+
+
+
 
 
 --Since the infection data has the US as 'United States of America' instead of 'United States', I added ' of America' to every row
@@ -104,7 +128,11 @@ where country = 'United States'
 ;
 
 
---Created a new column for each table - infections data & vaccines data - to standardize the date format
+
+
+
+
+--I Created a new column for each table - infections data & vaccines data - to standardize the date format
 
 alter table covid_vax$
 add date_2 date
@@ -118,6 +146,10 @@ add date_2 date
 update  who_covid
 set date_2 = convert(date, date_reported)
 ;
+
+
+
+
 
 
 --This query retrieves every country's cumulative positivity rate and infection death rates
