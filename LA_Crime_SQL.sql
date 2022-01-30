@@ -95,27 +95,29 @@ from
 
 
 --I noticed that some date_reported column values in crimes committed in 2019 were not fully standardized, so I created
---a new column and then tested and applied a query that would resolve the issue
+--a new column and used a query that would resolve the issue
 
 alter table LA_crime..crime
 add year_2 varchar(255);
 
+
 select year_, case	
-					when cast(year_ as int)>2019 then '2019'
-					else year_ end
+		when cast(year_ as int)>2019 then '2019'
+		else year_ end
 from
 LA_Crime..crime;
 
+
 update LA_Crime..crime
 set year_2 = case	
-					when cast(year_ as int)>2019 then '2019'
-					else year_ end;
+		when cast(year_ as int)>2019 then '2019'
+		else year_ end;
 
 
 
 
 
---Yearly Homicide count by year
+--Yearly Homicide count by sex
 
 select crime_code_description, count(crime_code_description) homicide_count, year_2 as year, Victim_Sex
 from
