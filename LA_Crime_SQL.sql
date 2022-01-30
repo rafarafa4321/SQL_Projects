@@ -151,4 +151,6 @@ from
 la_crime..arrest a
 where a.charge_group_description = 'homicide'
 group by
-a.charge_group_description, a.year_
+a.charge_group_description, a.year_;
+
+
