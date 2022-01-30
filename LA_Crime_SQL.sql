@@ -20,7 +20,7 @@ alter column age bigint;
 
 
 
---I created a new date column that only includes the year of the arrest instead of the full date
+--I created a new date column that only includes the year of the arrest instead of the full, unstandardized date
 
 alter table LA_crime..arrest
 add year_ varchar(255);
