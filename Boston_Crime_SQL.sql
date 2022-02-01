@@ -1,6 +1,10 @@
 
 --Boston Crime Data
 --Data Source: https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system?ref=hackernoon.com
+--Images of charts that I created by using Excel and Tableau:
+	--https://www.dropbox.com/s/90yp4taaeq8k0f7/All_Crime_Boston.JPG?dl=0
+	--https://www.dropbox.com/s/zp3s91q1209bz96/All_Crime_Boston_2.JPG?dl=0
+	--https://www.dropbox.com/s/104vgngxp2g7fxr/Boston_shooting_not.JPG?dl=0
 
 --A list of every type of crime for 2020; This was done to get a sense of the types of crimes included in this table
 
