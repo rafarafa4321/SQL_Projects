@@ -1,6 +1,5 @@
 
 --Boston Crime Data
---This page demonstrates the use of SQL Server, Microsoft Excel, and Tableau 
 --Data Source: https://data.boston.gov/dataset/crime-incident-reports-august-2015-to-date-source-new-system?ref=hackernoon.com
 
 --A list of every type of crime for 2020; This was done to get a sense of the types of crimes included in this table
@@ -13,7 +12,8 @@ select distinct OFFENSE_DESCRIPTION from boston_2020;
 
 
 
---The 2018 table had NULL values for when a shooting did not take place and 'Y' for when a shooting took place, so created a new table that returns 1 for Y and 0 for NULLs
+--The 2018 table had NULL values for when a shooting did not take place and 'Y' for when a shooting took place, 
+--so created a new table that returns 1 for Y and 0 for NULLs
 
 alter table boston_2018
 add shooting_2 int;
