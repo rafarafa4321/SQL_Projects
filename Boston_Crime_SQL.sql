@@ -13,7 +13,7 @@ select distinct OFFENSE_DESCRIPTION from boston_2020;
 
 
 --The 2018 table had NULL values for when a shooting did not take place and 'Y' for when a shooting took place, 
---so created a new table that returns 1 for Y and 0 for NULLs
+--so I created a new column that returns 1 for Y and 0 for NULLs
 
 alter table boston_2018
 add shooting_2 int;
