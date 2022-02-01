@@ -1,7 +1,10 @@
 
-
+--Loas Angeles California Crime Data from 2010 to 2019
 --Data Source: https://www.kaggle.com/cityofLA/los-angeles-crime-arrest-data?select=arrest-data-from-2010-to-present.csv
-
+--Images of charts I created by using Tableau:
+	--https://www.dropbox.com/s/5pou0pvo2dmnzqr/Felony%20Arrests%20Per%20year.JPG?dl=0
+	--https://www.dropbox.com/s/0asgnxh2u01g3hv/Homicide%20Arrests%20Per%20year.JPG?dl=0
+	--https://www.dropbox.com/s/l5gktu9zx4uj1e3/Homicide%20Victims.JPG?dl=0
 
 --Since many columns were imported as varchar, I modified some columns' data type
 
@@ -32,7 +35,7 @@ set year_ = parsename(replace(arrest_date, '-','.'),3);
 
 
 
---Felony arrests per year between males and females
+--Felony arrests -'F'- per year between males and females
 
 select Sex_Code, count(sex_code) as gender_total, year_
 from
@@ -48,7 +51,7 @@ year_, sex_code;
 
 
 
---Misdemeanor arrests per year between males and females
+--Misdemeanor arrests -'M'- per year between males and females
 
 select Sex_Code, count(sex_code) as gender_total, year_
 from
@@ -81,7 +84,7 @@ year_, sex_code ;
 
 
 
---Look up every distinct category of crime with respective code
+--Look up every distinct category of crime with respective crime code
 
 select distinct crime_code_description, crime_code
 from
