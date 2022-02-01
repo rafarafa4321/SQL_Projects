@@ -25,7 +25,7 @@ set shooting_2 = case when shooting = 'Y' then 1 else 0 end;
 
 --Total murders per year: separated by murders with shooting & murders with no shooting
 
-select OFFENSE_DESCRIPTION, count(OFFENSE_DESCRIPTION) total_murders,
+select OFFENSE_DESCRIPTION '2021', count(OFFENSE_DESCRIPTION) total_murders,
 sum(shooting) murders_by_shooting, sum(case when shooting = 0 then 1 else 0 end) murders_no_shooting
 from 
 	boston_2021
@@ -33,7 +33,7 @@ where OFFENSE_DESCRIPTION like 'MURDER%'
 group by OFFENSE_DESCRIPTION;
 
 
-select OFFENSE_DESCRIPTION, count(OFFENSE_DESCRIPTION) total_murders,
+select OFFENSE_DESCRIPTION '2020', count(OFFENSE_DESCRIPTION) total_murders,
 sum(shooting) murders_by_shooting, sum(case when shooting = 0 then 1 else 0 end) murders_no_shooting
 from 
 	boston_2020
