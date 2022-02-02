@@ -1,5 +1,5 @@
 
---Loas Angeles California Crime Data from 2010 to 2019
+--Los Angeles California Crime Data from 2010 to 2019
 --Data Source: https://www.kaggle.com/cityofLA/los-angeles-crime-arrest-data?select=arrest-data-from-2010-to-present.csv
 --Images of charts I created by using Tableau:
 	--https://www.dropbox.com/s/5pou0pvo2dmnzqr/Felony%20Arrests%20Per%20year.JPG?dl=0
